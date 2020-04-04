@@ -48,6 +48,7 @@ class Poller : noncopyable
   /// Must be called in the loop thread.
   virtual void removeChannel(Channel* channel) = 0;
 
+  // 用map单独保存int和channel的关系，能快速查找（红黑树logn)
   virtual bool hasChannel(Channel* channel) const;
 
   static Poller* newDefaultPoller(EventLoop* loop);
